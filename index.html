@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>리프레임처치 주보</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: #1a1a2e; color: #fff; min-height: 100vh; }
+
+  .hero { background: linear-gradient(180deg, #2d1b69 0%, #1a1a2e 100%); padding: 3rem 1.5rem 2rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .church-logo { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.05em; color: #fff; margin-bottom: 1.5rem; }
+  .date { font-size: 0.95rem; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem; }
+  .title { font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; line-height: 1.3; }
+  .subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; }
+
+  .content { max-width: 480px; margin: 0 auto; padding: 1.5rem 1.2rem; }
+
+  .section { margin-bottom: 2rem; }
+  .section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.15); }
+  .section-dot { width: 8px; height: 8px; border-radius: 50%; background: #a78bfa; flex-shrink: 0; }
+  .section-title { font-size: 1.05rem; font-weight: 700; color: #fff; }
+  .section-desc { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-left: auto; }
+
+  .order-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); align-items: start; }
+  .order-item:last-child { border-bottom: none; }
+  .item-left { display: flex; flex-direction: column; gap: 0.25rem; }
+  .item-name { font-size: 0.95rem; font-weight: 600; color: #fff; }
+  .item-detail { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+  .item-right { text-align: right; }
+  .item-who { font-size: 0.82rem; color: #a78bfa; }
+
+  .song-btn { background: none; border: none; color: rgba(255,255,255,0.55); font-size: 0.82rem; font-family: inherit; cursor: pointer; padding: 2px 0; text-align: left; display: flex; align-items: center; gap: 4px; transition: color 0.2s; line-height: 1.6; }
+  .song-btn:hover { color: #a78bfa; }
+  .song-btn::before { content: '♪'; font-size: 0.75rem; }
+
+  .offering { background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.25); border-radius: 12px; padding: 1.2rem; margin-bottom: 2rem; }
+  .offering-title { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 0.4rem; }
+  .offering-account { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+  .offering-note { font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.5; }
+
+  .footer { background: rgba(0,0,0,0.3); padding: 2rem 1.2rem 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+  .footer-logo { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 1.2rem; }
+  .sns-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .sns-link { display: flex; align-items: center; gap: 0.4rem; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .sns-link:hover { color: #a78bfa; }
+  .sns-icon { width: 20px; height: 20px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 320px; margin: 0 auto; }
+  .contact-item { text-align: left; }
+  .contact-label { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.4); margin-bottom: 0.2rem; letter-spacing: 0.05em; text-transform: uppercase; }
+  .contact-value { font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.4; }
+
+  /* 팝업 */
+  .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 100; align-items: center; justify-content: center; padding: 1.5rem; }
+  .overlay.active { display: flex; }
+  .popup { background: #1e1b3a; border: 1px solid rgba(167,139,250,0.3); border-radius: 16px; width: 100%; max-width: 400px; max-height: 80vh; display: flex; flex-direction: column; }
+  .popup-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .popup-title { font-size: 1rem; font-weight: 700; color: #fff; }
+  .popup-close { background: none; border: none; color: rgba(255,255,255,0.5); font-size: 1.4rem; cursor: pointer; line-height: 1; padding: 0 4px; transition: color 0.2s; }
+  .popup-close:hover { color: #fff; }
+  .popup-body { padding: 1.2rem; overflow-y: auto; }
+  .lyrics { font-size: 0.88rem; color: rgba(255,255,255,0.8); line-height: 2; white-space: pre-wrap; word-break: keep-all; }
+  .lyrics-section { margin-bottom: 1rem; }
+  .lyrics-label { font-size: 0.72rem; color: #a78bfa; font-weight: 600; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="church-logo">리프레임처치</div>
+  <div class="date">2026년 3월 15일 오후 1시</div>
+  <div class="title">사순절 세 번째 주일</div>
+  <div class="subtitle">Third Sunday of Lent</div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot"></div>
+      <div class="section-title">부름</div>
+      <div class="section-desc">예배의 자리로 나아갑니다</div>
+    </div>
+    <div class="order-item">
+      <div class="item-left"><div class="item-name">침묵</div></div>
+      <div class="item-right"><div class="item-who">다같이</div></div>
+    </div>
+    <div class="order-item">
+      <div class="item-left">
+        <div class="item-name">예배의 부름</div>
+        <div class="item-detail">요한복음 1:4-5</div>
+      </div>
+      <div class="item-right"><div class="item-who">인도자</div></div>
+    </div>
+    <div class="order-item">
+      <div class="item-left">
+        <div class="item-name">찬양</div>
+        <div class="item-detail">
+          <button class="song-btn" onclick="openLyrics('입례')">입례</button>
+        </div>
+      </div>
+      <div class="item-right"><div class="item-who">다같이</div></div>
+    </div>
+    <div class="order-item">
+      <div class="item-left">
+        <div class="item-name">사도신경</div>
+        <div class="item-detail">사도신경</div>
+      </div>
+      <div class="item-right"><div class="item-who">다같이</div></div>
+    </div>
+    <div class="order-item">
+      <div class="item-left">
+        <div class="item-name">찬양</div>
+        <div class="item-detail">
+          <button class="song-btn" onclick="openLyrics('임재 (하늘의 문을 여소서)')">임재 (하늘의 문을 여소서)</button>
+          <button class="song-btn" onclick="openLyrics('성령이여 내 영혼을')">성령이여 내 영혼을</button>
+          <button class="song-btn" onclick="openLyrics('내 구주 예수님')">내 구주 예수님</button>
+          <button class="song-btn" onclick="openLyrics('사랑하는 나의 아버지')">사랑하는 나의 아버지</button>
+        </div>
+      </div>
+      <div class="item-right"><div class="item-who">다같이</div></div>
+    </div>
+    <div class="order-item">
+      <div class="item-left"><div class="item-name">대표기도</div></div>
+      <div class="item-right"><div class="item-who">담당자</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot" style="background:#34d399;"></div>
+      <div class="section-title">세움</div>
+      <div class="section-desc">말씀으로 세워갑니다</div>
+    </div>
+    <div class="order-item">
+      <div class="item-left">
+        <div class="item-name">성무일과</div>
+        <div class="item-detail">요한복음 2:1-11</div>
+      </div>
+      <div class="item-right"><div class="item-who">담당자</div></div>
+    </div>
+    <div class="order-item">
+      <div class="item-left">
+        <div class="item-name">광고</div>
+        <div class="item-detail">리프레임 소식</div>
+      </div>
+      <div class="item-right"><div class="item-who">담당자</div></div>
+    </div>
+    <div class="order-item">
+      <div class="item-left">
+        <div class="item-name">설교</div>
+        <div class="item-detail">설교 제목</div>
+      </div>
+      <div class="item-right"><div class="item-who">지대근 목사</div></div>
+    </div>
+    <div class="order-item">
+      <div class="item-left">
+        <div class="item-name">봉헌찬양</div>
+        <div class="item-detail">
+          <button class="song-btn" onclick="openLyrics('나의 모습 나의 소유')">나의 모습 나의 소유</button>
+        </div>
+      </div>
+      <div class="item-right"><div class="item-who">다같이</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot" style="background:#fb923c;"></div>
+      <div class="section-title">보냄</div>
+      <div class="section-desc">그리스도의 대사로 살아갑니다</div>
+    </div>
+    <div class="order-item">
+      <div class="item-left"><div class="item-name">축도</div></div>
+      <div class="item-right"><div class="item-who">지대근 목사</div></div>
+    </div>
+    <div class="order-item">
+      <div class="item-left">
+        <div class="item-name">파송 찬양</div>
+        <div class="item-detail">
+          <button class="song-btn" onclick="openLyrics('다시 일어나')">다시 일어나</button>
+        </div>
+      </div>
+      <div class="item-right"><div class="item-who">다같이</div></div>
+    </div>
+  </div>
+
+  <div class="offering">
+    <div class="offering-title">헌금 계좌</div>
+    <div class="offering-account">카카오뱅크 3333-18-8088174 (김윤경)</div>
+    <div class="offering-note">* 온라인 헌금하실 때, 헌금의 종류와 본인의 이름을 기재하여 보내주세요.</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-logo">리프레임처치</div>
+  <div class="sns-links">
+    <a href="https://www.youtube.com/@ReFrameChurch2201" class="sns-link" target="_blank">
+      <svg class="sns-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+      유튜브
+    </a>
+    <a href="https://www.instagram.com/reframe_church" class="sns-link" target="_blank">
+      <svg class="sns-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+      인스타그램
+    </a>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <div class="contact-label">문의</div>
+      <div class="contact-value">지대근 목사<br>010-2062-7456</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">주소</div>
+      <div class="contact-value">서울 성동구 왕십리로 88, B1층<br>(서울드림교회 비전센터)</div>
+    </div>
+  </div>
+</div>
+
+<!-- 팝업 -->
+<div class="overlay" id="overlay" onclick="closeOnOverlay(event)">
+  <div class="popup">
+    <div class="popup-header">
+      <div class="popup-title" id="popup-title"></div>
+      <button class="popup-close" onclick="closePopup()">×</button>
+    </div>
+    <div class="popup-body">
+      <div class="lyrics" id="popup-lyrics"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const lyricsData = {
+  '입례': `※ 이 찬양의 가사를 입력해 주세요.`,
+
+  '임재 (하늘의 문을 여소서)': `※ 이 찬양의 가사를 입력해 주세요.`,
+
+  '성령이여 내 영혼을': `※ 이 찬양의 가사를 입력해 주세요.`,
+
+  '내 구주 예수님': `※ 이 찬양의 가사를 입력해 주세요.`,
+
+  '사랑하는 나의 아버지': `※ 이 찬양의 가사를 입력해 주세요.`,
+
+  '나의 모습 나의 소유': `※ 이 찬양의 가사를 입력해 주세요.`,
+
+  '다시 일어나': `※ 이 찬양의 가사를 입력해 주세요.`
+};
+
+function openLyrics(title) {
+  document.getElementById('popup-title').textContent = title;
+  document.getElementById('popup-lyrics').textContent = lyricsData[title] || '가사 준비 중입니다.';
+  document.getElementById('overlay').classList.add('active');
+}
+
+function closePopup() {
+  document.getElementById('overlay').classList.remove('active');
+}
+
+function closeOnOverlay(e) {
+  if (e.target === document.getElementById('overlay')) closePopup();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+</script>
+
+</body>
+</html>
