@@ -9,10 +9,13 @@
   body { font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: #f7f6fb; color: #1a1a2e; min-height: 100vh; }
 
   .hero { background: linear-gradient(160deg, #4c1d95 0%, #7c3aed 60%, #a78bfa 100%); padding: 3rem 1.5rem 2.5rem; text-align: center; }
+  .church-logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.08em; color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; }
+  .worship-type { font-size: 1rem; color: rgba(255,255,255,0.7); margin-bottom: 1rem; letter-spacing: 0.05em; }
   .date { font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 0.6rem; }
   .title { font-size: 1.9rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; line-height: 1.3; }
   .subtitle { font-size: 0.85rem; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; }
-  .hero-verse { font-size: 0.88rem; color: rgba(255,255,255,0.8); margin-top: 1rem; font-style: italic; line-height: 1.6; }
+  .hero-verse { font-size: 0.82rem; color: rgba(255,255,255,0.7); margin-top: 1rem; font-style: italic; line-height: 1.6; }
+
   .etiquette { background: rgba(255,255,255,0.12); border-radius: 12px; padding: 0.9rem 1.1rem; margin: 1.2rem auto 0; max-width: 340px; text-align: left; }
   .etiquette-title { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
   .etiquette li { font-size: 0.75rem; color: rgba(255,255,255,0.75); line-height: 1.8; list-style: none; padding-left: 0.8rem; position: relative; }
@@ -26,6 +29,7 @@
   .section-badge.green { background: #059669; }
   .section-badge.orange { background: #ea580c; }
   .section-badge.blue { background: #2563eb; }
+  .section-badge.gray { background: #6b7280; }
   .section-title { font-size: 1rem; font-weight: 700; color: #1a1a2e; }
 
   .order-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; padding: 0.7rem 0; border-bottom: 1px solid #f5f3ff; align-items: start; }
@@ -52,6 +56,15 @@
   .sermon-link { color: #7c3aed; font-size: 0.8rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 4px; line-height: 1.7; }
   .sermon-link::before { content: '▶'; font-size: 0.65rem; }
   .sermon-link:hover { color: #4c1d95; text-decoration: underline; }
+
+  /* 모임 테이블 */
+  .meeting-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+  .meeting-table th { background: #f5f3ff; color: #7c3aed; font-weight: 700; padding: 0.5rem 0.6rem; text-align: left; font-size: 0.72rem; }
+  .meeting-table td { padding: 0.55rem 0.6rem; border-bottom: 1px solid #f5f3ff; color: #374151; vertical-align: top; line-height: 1.5; }
+  .meeting-table tr:last-child td { border-bottom: none; }
+  .meeting-table .cat { font-weight: 700; color: #1a1a2e; }
+  .meeting-table .sub { font-size: 0.72rem; color: #9ca3af; }
+  .meeting-note { font-size: 0.72rem; color: #9ca3af; margin-top: 0.8rem; line-height: 1.7; }
 
   .offering { background: #fff; border-radius: 16px; padding: 1.2rem; margin-bottom: 1.2rem; border: 1.5px solid #ede9fe; box-shadow: 0 2px 12px rgba(124,58,237,0.07); }
   .offering-title { font-size: 0.75rem; font-weight: 700; color: #7c3aed; letter-spacing: 0.08em; margin-bottom: 0.5rem; text-transform: uppercase; }
@@ -94,7 +107,7 @@
 
 <div class="hero">
   <div style="margin-bottom: 1.8rem;">
-    <img src="https://raw.githubusercontent.com/smart9592/reframechurch/refs/heads/main/1688777944179.png" alt="리프레임처치" style="height: 48px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+    <img src="https://raw.githubusercontent.com/smart9592/reframechurch/refs/heads/main/1688777944179.png" alt="리프레임처치" style="height: 480px; max-width: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
     <div style="display:none; font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:rgba(255,255,255,0.85);">리프레임처치</div>
   </div>
   <div class="date">2026. 3. 15. PM 1:00</div>
@@ -117,17 +130,24 @@
 
 <div class="content">
 
+  <!-- 부름 -->
   <div class="section">
     <div class="section-header">
       <div class="section-badge">부름</div>
       <div class="section-title">예배의 자리로 나아갑니다</div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">찬양</div><div class="item-detail"><button class="song-btn" onclick="openPopup('song','입례',false)">입례</button></div></div>
+      <div class="item-left">
+        <div class="item-name">찬양</div>
+        <div class="item-detail"><button class="song-btn" onclick="openPopup('song','입례',false)">입례</button></div>
+      </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">참회 기도</div><div class="item-detail"><button class="verse-btn" onclick="openPopup('verse','요한1서 1:8-10',true)">요한1서 1:8-10</button></div></div>
+      <div class="item-left">
+        <div class="item-name">참회 기도</div>
+        <div class="item-detail"><button class="verse-btn" onclick="openPopup('verse','요한1서 1:8-10',true)">요한1서 1:8-10</button></div>
+      </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
     <div class="order-item">
@@ -135,7 +155,10 @@
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">사죄의 선언</div><div class="item-detail"><button class="verse-btn" onclick="openPopup('verse','시편 103:8-10',true)">시편 103:8-10</button></div></div>
+      <div class="item-left">
+        <div class="item-name">사죄의 선언</div>
+        <div class="item-detail"><button class="verse-btn" onclick="openPopup('verse','시편 103:8-10',true)">시편 103:8-10</button></div>
+      </div>
       <div class="item-right"><div class="item-who">인도자</div></div>
     </div>
     <div class="order-item">
@@ -143,30 +166,50 @@
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">찬양</div><div class="item-detail"><button class="song-btn" onclick="openPopup('song','찬양',false)">찬양</button></div></div>
+      <div class="item-left">
+        <div class="item-name">찬양</div>
+        <div class="item-detail"><button class="song-btn" onclick="openPopup('song','찬양',false)">찬양</button></div>
+      </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">공동체 기도</div><div class="item-detail"><button class="text-btn" onclick="openPopup('text','공동체 기도',false)">공동체 기도 보기</button></div></div>
+      <div class="item-left">
+        <div class="item-name">공동체 기도</div>
+        <div class="item-detail"><button class="text-btn" onclick="openPopup('text','공동체 기도',false)">공동체 기도 보기</button></div>
+      </div>
       <div class="item-right"><div class="item-who">이희준 자매</div></div>
     </div>
   </div>
 
+  <!-- 세움 -->
   <div class="section">
     <div class="section-header">
       <div class="section-badge green">세움</div>
       <div class="section-title">말씀으로 세워갑니다</div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">성무일과</div><div class="item-detail"><button class="verse-btn" onclick="openPopup('verse','요한복음 9:1-41',true)">요한복음 9:1-41</button></div></div>
+      <div class="item-left">
+        <div class="item-name">성무일과</div>
+        <div class="item-detail"><button class="verse-btn" onclick="openPopup('verse','요한복음 9:1-41',true)">요한복음 9:1-41</button></div>
+      </div>
       <div class="item-right"><div class="item-who">이희준 자매</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">광고</div><div class="item-detail"><button class="notice-btn" onclick="openPopup('notice','리프레임 소식',false)">리프레임 소식</button></div><div class="note">* 광고 후, 영상이 있습니다.</div></div>
+      <div class="item-left">
+        <div class="item-name">광고</div>
+        <div class="item-detail"><button class="notice-btn" onclick="openPopup('notice','리프레임 소식',false)">리프레임 소식</button></div>
+        <div class="note">* 광고 후, 영상이 있습니다.</div>
+      </div>
       <div class="item-right"><div class="item-who">담당자</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">설교</div><div class="item-detail"><a class="sermon-link" href="https://링크를입력해주세요" target="_blank">4과. 최선의 결과 이루기</a></div><div class="note">* 설교 제목을 클릭하시면 설교안을 확인하실 수 있습니다.</div></div>
+      <div class="item-left">
+        <div class="item-name">설교</div>
+        <div class="item-detail">
+          <a class="sermon-link" href="https://링크를입력해주세요" target="_blank">4과. 최선의 결과 이루기</a>
+        </div>
+        <div class="note">* 설교 제목을 클릭하시면 설교안을 확인하실 수 있습니다.</div>
+      </div>
       <div class="item-right"><div class="item-who">지대근 목사</div></div>
     </div>
     <div class="order-item">
@@ -174,26 +217,41 @@
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">봉헌 찬양</div><div class="item-detail"><button class="song-btn" onclick="openPopup('song','나의 모습 나의 소유',false)">나의 모습 나의 소유</button></div><div class="note">* 회중은 말씀에 응답하며 봉헌 찬양을 부릅니다.</div></div>
+      <div class="item-left">
+        <div class="item-name">봉헌 찬양</div>
+        <div class="item-detail"><button class="song-btn" onclick="openPopup('song','나의 모습 나의 소유',false)">나의 모습 나의 소유</button></div>
+        <div class="note">* 회중은 말씀에 응답하며 봉헌 찬양을 부릅니다.</div>
+      </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
   </div>
 
+  <!-- 성찬 -->
   <div class="section">
     <div class="section-header">
       <div class="section-badge blue">성찬</div>
       <div class="section-title"></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">성찬으로의 초대</div><div class="item-detail"><button class="text-btn" onclick="openPopup('text','성찬으로의 초대',true)">초대 교독문 보기</button></div><div class="note">* 교독 후, 모든 성도들은 성찬 식탁 앞으로 나옵니다.</div></div>
+      <div class="item-left">
+        <div class="item-name">성찬으로의 초대</div>
+        <div class="item-detail"><button class="text-btn" onclick="openPopup('text','성찬으로의 초대',true)">초대 교독문 보기</button></div>
+        <div class="note">* 교독 후, 모든 성도들은 성찬 식탁 앞으로 나옵니다.</div>
+      </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">성찬 찬양</div><div class="item-detail"><button class="song-btn" onclick="openPopup('song','성부 성자 성령',false)">성부 성자 성령</button></div></div>
+      <div class="item-left">
+        <div class="item-name">성찬 찬양</div>
+        <div class="item-detail"><button class="song-btn" onclick="openPopup('song','성부 성자 성령',false)">성부 성자 성령</button></div>
+      </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">성찬 제정사</div><div class="item-detail"><button class="text-btn" onclick="openPopup('text','성찬 제정사',true)">제정사 보기</button></div></div>
+      <div class="item-left">
+        <div class="item-name">성찬 제정사</div>
+        <div class="item-detail"><button class="text-btn" onclick="openPopup('text','성찬 제정사',true)">제정사 보기</button></div>
+      </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
     <div class="order-item">
@@ -201,11 +259,18 @@
       <div class="item-right"><div class="item-who">집례자</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">성찬 찬양</div><div class="item-detail"><button class="song-btn" onclick="openPopup('song','오 나의 주님 친히 뵈오니',false)">오 나의 주님 친히 뵈오니</button></div></div>
+      <div class="item-left">
+        <div class="item-name">성찬 찬양</div>
+        <div class="item-detail"><button class="song-btn" onclick="openPopup('song','오 나의 주님 친히 뵈오니',false)">오 나의 주님 친히 뵈오니</button></div>
+      </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">분병 분잔</div><div class="item-detail"><button class="text-btn" onclick="openPopup('text','분병 분잔',true)">분병 분잔 교독문 보기</button></div><div class="note">* 찬양팀부터 나와서 성찬에 참여합니다.</div></div>
+      <div class="item-left">
+        <div class="item-name">분병 분잔</div>
+        <div class="item-detail"><button class="text-btn" onclick="openPopup('text','분병 분잔',true)">분병 분잔 교독문 보기</button></div>
+        <div class="note">* 찬양팀부터 나와서 성찬에 참여합니다.</div>
+      </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
     <div class="order-item">
@@ -213,11 +278,15 @@
       <div class="item-right"><div class="item-who">집례자</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">응답 찬양</div><div class="item-detail"><button class="song-btn" onclick="openPopup('song','성부 성자 성령 (후렴)',false)">성부 성자 성령 (후렴)</button></div></div>
+      <div class="item-left">
+        <div class="item-name">응답 찬양</div>
+        <div class="item-detail"><button class="song-btn" onclick="openPopup('song','성부 성자 성령 (후렴)',false)">성부 성자 성령 (후렴)</button></div>
+      </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
   </div>
 
+  <!-- 보냄 -->
   <div class="section">
     <div class="section-header">
       <div class="section-badge orange">보냄</div>
@@ -228,11 +297,15 @@
       <div class="item-right"><div class="item-who">지대근 목사</div></div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">파송 찬양</div><div class="item-detail"><button class="song-btn" onclick="openPopup('song','다시 일어나',false)">다시 일어나</button></div></div>
+      <div class="item-left">
+        <div class="item-name">파송 찬양</div>
+        <div class="item-detail"><button class="song-btn" onclick="openPopup('song','다시 일어나',false)">다시 일어나</button></div>
+      </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
   </div>
 
+  <!-- 헌금 -->
   <div class="offering">
     <div class="offering-title">헌금 계좌</div>
     <div class="offering-account">하나은행 769-910031-95404 (리프레임처치)</div>
@@ -295,6 +368,7 @@
   </div>
 </div>
 
+<!-- 팝업 -->
 <div class="overlay" id="overlay" onclick="closeOnOverlay(event)">
   <div class="popup">
     <div class="popup-header">
@@ -317,19 +391,33 @@ const LEGEND = `<div class="popup-legend"><span><span class="icon-t">†</span> 
 
 const data = {
   '입례': `우리 모두 예배하는 자 되어\n온전히 영과 진리로 주를 예배하자\n주가 우리와 함께 영원히 함께 하시고\n마르지 않는 샘물로 우릴 채우시리라`,
+
   '찬양': ``,
+
   '요한1서 1:8-10': `8. 우리가 죄가 없다고 말하면, 우리는 자기를 속이는 것이요, 진리가 우리 속에 없는 것입니다.\n9. 우리가 우리 죄를 자백하면, 하나님은 신실하시고 의로우신 분이시서, 우리 죄를 용서하시고, 모든 불의에서 우리를 깨끗하게 해주실 것입니다.\n10. 우리가 죄를 지은 일이 없다고 말하면, 우리는 하나님을 거짓말쟁이로 만드는 것이며, 하나님의 말씀이 우리 속에 있지 아니합니다.\n\n† 하나님이 주신 계명에 비추어 당신의 삶과 행실을 성찰하십시오. 의지든 알아든 행동이든 그분 뜻을 거스른 부분이 있다면 자신의 죄성을 슬퍼하고, 삶을 바꾸고자 하는 온전한 목적을 가지고 전능하신 하나님께 고백하십시오.`,
+
   '시편 103:8-10': `8. 주님은 자비롭고, 은혜로우시며, 노하기를 더디하시며, 사랑이 그지없으십니다.\n9. 두고두고 꾸짖지 않으시며, 노를 끝없이 품지 않으십니다.\n10. 우리 죄를, 지은 그대로 갚지 않으시고 우리 잘못을, 저지른 그대로 갚지 않으십니다.\n\n✦ 전능하신 하나님은 우리를 사랑하시어 예수 그리스도를 이 땅에 보내주시고, 우리의 죄를 사하여 주시려고 십자가에 못박혀 돌아가심을 믿습니다. 아멘`,
+
   '공동체 기도': `자애로운 아버지여, 당신의 부활하신 아들 예수 그리스도께서 세상에 생명을 주는 참된 빵이 되기 위하여 하늘에서 내려오셨습니다. 우리에게 영원히 이 빵을 주셔서, 그분이 우리 안에, 우리가 그분 안에 살게 하소서. 당신과 성령과 함께 한 분 하나님으로서 이제로부터 영원히 사시고 다스리시는 예수 그리스도의 이름으로 기도하나이다. 아멘`,
+
   '요한복음 9:1-41': `† 오늘 우리에게 주시는 하나님의 말씀은 요한복음 9:1-41 입니다.\n\n─── 함께 말씀 교독 ───\n\n† 이는 하나님의 말씀입니다.\n✦ 아멘.`,
+
   '리프레임 소식': `오늘 리프레임처치 예배에 오신 모든 분들을 주님의 이름으로 환영하고 축복합니다.\n\n1. 리프레임처치 사순절 절기헌금 (열두 광주리)\n- 이번 사순절은 공동체적으로 한 끼를 금식하고 주님께 드립니다. 이 헌금은 안동지역에 나무를 심는 일에, 회복과 돌봄이 필요한 가정에게 상당지원에 사용됩니다.\n* 우리의 깨어짐으로 모아진 12광주리가 한 사람에게 또 생태계에 창조의 목적과 질서를 회복하는데 귀하게 쓰여질 것입니다.\n** 사순절 헌금은 성금요일 (4/3 예배 시)에 드립니다.\n\n2. 26년 사순절 피정\n- 일시 : 3월 21일(토), 오전 10시 ~ 오후 3시 30분\n- 장소 : 레미제라블 (광나루)\n- 내용 : 강의 1, 2 (7대죄 강의 및 기도안내)\n- 식사 회비 : 5만원\n* 우측 QR코드를 인식하여 신청서를 작성해 주세요.\n\n3. 공동식사 조 안내\n1조 : 임하니(김학호), 김병민, 강은경\n2조 : 조은유(장동진), 이희준, 강희경(박지운)\n3조 : 문선미 집사, 박예찬, 한새미\n4조 : 김윤경 사모, 이현경, 홍샛별 집사\n* 다음 주 담당은 2조입니다.\n** 간단하고 맛있는 식사로 준비해 주세요.\n\n4. 에니어그램 기초 과정\n- 나를 이해하고 사랑 안에 성장하는 에니어그램 기초 과정을 잘 마무리하였습니다.\n* 심화 과정은 추후 안내될 예정입니다.\n\n5. 교우 소식\n1) 홍샛별 집사 : 4월 2일부터 5일까지 부산 벡스코에서 열리는 부산국제화랑아트페어(BAMA) 참여하십시오.\n2) 김학호 형제 : 경미한 접촉사고로 입원했습니다.\n3) 박주호 : 첫 생일을 축하합니다.\n* 함께 기도해 주세요.`,
+
   '나의 모습 나의 소유': `나의 모습 나의 소유 주님 앞에 모두 드립니다\n모든 아픔 모든 기쁨 내 모든 눈물 받아주소서\n\n나의 생명을 드리니 주 영광 위하여 사용하옵소서\n내가 사는 날 동안에 주를 찬양하며\n기쁨의 제물되리 나를 받아주소서\n\n어제일과 내일일도 꿈과 희망 모두 드립니다\n모든 소망 모든 계획 내 손과 마음 받아주소서\n\n나의 생명을 드리니 주 영광 위하여 사용하옵소서\n내가 사는 날 동안에 주를 찬양하며\n기쁨의 제물되리 나를 받아주소서`,
+
   '성찬으로의 초대': `† 주님께서 베푸신 환대의 식탁에 성도들을 초대합니다.\n✦ 감사함으로 주님 앞에 나아갑니다.\n† 주님께서 여러분들과 함께 하시기를 빕니다.\n✦ 목사님과 함께 하기를 빕니다.\n† 주님을 향해 마음을 드높이십시오.\n✦ 우리 마음을 주님께 높이 듭니다.\n† 우리 주 하나님께 감사합시다.\n✦ 이는 주님의 백성이 마땅히 해야 할 바입니다.`,
+
   '성부 성자 성령': `성부 성자 성령 하나님 우리게 오소서\n성부 성자 성령 하나님 우리게 오소서\n\n나의 하나님 나의 예수님 진리의 주 성령\n나의 하나님 나의 예수님 진리의 주 성령\n\n성부 성자 성령 하나님 우리게 오소서\n성부 성자 성령 하나님 우리게 오소서`,
+
   '성찬 제정사': `† (말씀 봉독 후) 이것은 주님께 전해 받은 것입니다.\n✦ 주 예수님, 우리가 먹고 마실 때마다 우리를 위해 찢기시고, 흘리시고, 나누어 주신 그 사랑과 은혜를 기억합니다.`,
+
   '오 나의 주님 친히 뵈오니': `오 나의 주님 친히 뵈오니\n영원한 세계 밝히 나타나\n한없는 은혜 길이 누리니\n주님께 모든 염려 맡기리\n\n주님의 떡을 내가 먹으며\n주님의 잔을 내가 마시니\n근심의 짐을 벗어버리니\n죄사함 받아 내 맘 새롭다`,
+
   '분병 분잔': `† 이것은 그리스도의 몸입니다.\n✦ 아멘.\n† 이것은 그리스도의 피입니다.\n✦ 아멘.`,
+
   '성부 성자 성령 (후렴)': `아멘 아멘 아멘 아멘 (x2)`,
+
   '다시 일어나': `다시 일어나 주를 예배함이\n내 모든 기쁨이 되리\n그의 기쁨 되어 삶의 모든 순간을\n주께 다 내어드리리`
 };
 
@@ -349,4 +437,4 @@ function closeOnOverlay(e) { if (e.target === document.getElementById('overlay')
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
 </script>
 </body>
-</html>
+ </html>
