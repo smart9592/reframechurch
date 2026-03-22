@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>설교안 - 리프레임처치</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: #1a1a2e; color: #fff; min-height: 100vh; display: flex; flex-direction: column; }
+
+  .header { background: linear-gradient(160deg, #4c1d95 0%, #7c3aed 60%, #a78bfa 100%); padding: 1.2rem 1.5rem; text-align: center; }
+  .header img { height: 32px; margin-bottom: 0.4rem; }
+  .header-title { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+  .header-sermon { font-size: 1.1rem; font-weight: 700; color: #fff; margin-top: 0.2rem; }
+
+  .viewer { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 1.2rem; }
+
+  .slide-wrap { width: 100%; max-width: 600px; position: relative; }
+  .slide-img { width: 100%; border-radius: 12px; display: block; box-shadow: 0 8px 32px rgba(0,0,0,0.4); min-height: 200px; background: #2d1b69; }
+
+  .nav { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 600px; margin-top: 1.2rem; gap: 1rem; }
+  .nav-btn { background: rgba(124,58,237,0.3); border: 1px solid rgba(124,58,237,0.5); color: #fff; width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; flex-shrink: 0; }
+  .nav-btn:hover { background: rgba(124,58,237,0.6); }
+  .nav-btn:disabled { opacity: 0.3; cursor: default; }
+
+  .page-info { font-size: 0.9rem; color: rgba(255,255,255,0.7); text-align: center; flex: 1; }
+  .page-num { font-size: 1.1rem; font-weight: 700; color: #fff; }
+
+  .progress { width: 100%; max-width: 600px; margin-top: 1rem; background: rgba(255,255,255,0.1); border-radius: 4px; height: 4px; }
+  .progress-bar { height: 4px; background: #a78bfa; border-radius: 4px; transition: width 0.3s; }
+
+  .thumb-wrap { width: 100%; max-width: 600px; margin-top: 1.2rem; display: flex; gap: 8px; overflow-x: auto; padding-bottom: 0.5rem; }
+  .thumb-wrap::-webkit-scrollbar { height: 4px; }
+  .thumb-wrap::-webkit-scrollbar-thumb { background: rgba(167,139,250,0.4); border-radius: 4px; }
+  .thumb { width: 56px; height: 56px; object-fit: cover; border-radius: 6px; cursor: pointer; opacity: 0.5; border: 2px solid transparent; flex-shrink: 0; transition: all 0.2s; }
+  .thumb.active { opacity: 1; border-color: #a78bfa; }
+  .thumb:hover { opacity: 0.8; }
+
+  .loading { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 1rem; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="https://raw.githubusercontent.com/smart9592/reframechurch/refs/heads/main/1688777944179.png" alt="리프레임처치" onerror="this.style.display='none'">
+  <div class="header-title">2026. 3. 22. 사순절 다섯째 주일</div>
+  <div class="header-sermon">5과. 기쁨이 가득한 동행</div>
+</div>
+
+<div class="viewer">
+  <div class="slide-wrap">
+    <img class="slide-img" id="mainImg" src="" alt="설교안">
+  </div>
+
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn" onclick="move(-1)">‹</button>
+    <div class="page-info">
+      <span class="page-num" id="pageNum">1</span>
+      <span> / 41</span>
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="move(1)">›</button>
+  </div>
+
+  <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+  <div class="thumb-wrap" id="thumbWrap"></div>
+</div>
+
+<script>
+const BASE = 'https://raw.githubusercontent.com/smart9592/reframechurch/refs/heads/main/sermon%20';
+const EXT = '.jpg';
+const TOTAL = 41;
+let cur = 1;
+
+function url(n) {
+  return BASE + encodeURIComponent(`(${n})`) + EXT;
+}
+
+function go(n) {
+  cur = n;
+  document.getElementById('mainImg').src = url(n);
+  document.getElementById('pageNum').textContent = n;
+  document.getElementById('prevBtn').disabled = n === 1;
+  document.getElementById('nextBtn').disabled = n === TOTAL;
+  document.getElementById('progressBar').style.width = (n / TOTAL * 100) + '%';
+  document.querySelectorAll('.thumb').forEach((t, i) => {
+    t.classList.toggle('active', i + 1 === n);
+  });
+  const active = document.querySelector('.thumb.active');
+  if (active) active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
+
+function move(d) { if (cur + d >= 1 && cur + d <= TOTAL) go(cur + d); }
+
+// 썸네일 생성
+const wrap = document.getElementById('thumbWrap');
+for (let i = 1; i <= TOTAL; i++) {
+  const img = document.createElement('img');
+  img.className = 'thumb';
+  img.src = url(i);
+  img.onclick = () => go(i);
+  wrap.appendChild(img);
+}
+
+// 키보드 지원
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') move(-1);
+  if (e.key === 'ArrowRight') move(1);
+});
+
+// 터치 스와이프
+let tx = 0;
+document.getElementById('mainImg').addEventListener('touchstart', e => tx = e.touches[0].clientX);
+document.getElementById('mainImg').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 50) move(dx < 0 ? 1 : -1);
+});
+
+go(1);
+</script>
+</body>
+</html>
