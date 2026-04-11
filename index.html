@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>리프레임처치 주보</title>
-<meta property="og:title" content="리프레임처치 주보 | 부활주일 2026. 4. 5.">
-<meta property="og:description" content="부활주일 · 2026. 4. 5.">
+<meta property="og:title" content="리프레임처치 주보 | 부활 후 첫째 주일 2026. 4. 12.">
+<meta property="og:description" content="부활 후 첫째 주일 · 2026. 4. 12.">
 <meta property="og:image" content="https://raw.githubusercontent.com/smart9592/reframechurch/refs/heads/main/image.png">
 <meta property="og:type" content="website">
 <style>
@@ -25,17 +25,14 @@
 
   .content { max-width: 600px; margin: 0 auto; padding: 1.2rem 0.6rem; font-size: 264%; }
 
-  .section { background: #fff; border-radius: 16px; padding: 1.2rem 1.2rem 0.5rem; margin-bottom: 1.2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid #e5e5e5; }
-  .section-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1.5px solid #f0f0f0; }
-  .section-badge { background: #1a1a2e; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.05em; flex-shrink: 0; }
+  .section { background: #fff; border-radius: 16px; padding: 1.2rem 1.2rem 0.5rem; margin-bottom: 1.2rem; box-shadow: 0 2px 12px rgba(124,58,237,0.07); border: 1px solid rgba(124,58,237,0.1); }
+  .section-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1.5px solid #f0eeff; }
+  .section-badge { background: #7c3aed; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.05em; flex-shrink: 0; }
   .section-badge.green { background: #059669; }
   .section-badge.orange { background: #ea580c; }
-  .section-badge.blue { background: #2563eb; }
-  .section-badge.purple { background: #7c3aed; }
-  .section-badge.gray { background: #6b7280; }
   .section-title { font-size: 1rem; font-weight: 700; color: #1a1a2e; }
 
-  .order-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; padding: 0.7rem 0; border-bottom: 1px solid #f5f5f5; align-items: start; }
+  .order-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; padding: 0.7rem 0; border-bottom: 1px solid #f5f3ff; align-items: start; }
   .order-item:last-child { border-bottom: none; }
   .item-left { display: flex; flex-direction: column; gap: 0.2rem; }
   .item-name { font-size: 0.92rem; font-weight: 600; color: #1a1a2e; }
@@ -44,8 +41,8 @@
   .item-who { font-size: 0.8rem; color: #1a1a2e; font-weight: 500; white-space: nowrap; }
   .note { font-size: 0.74rem; color: #9ca3af; font-style: italic; margin-top: 0.2rem; }
 
-  .song-btn { background: none; border: none; color: #1a1a2e; font-size: 0.8rem; font-family: inherit; cursor: pointer; padding: 2px 0; text-align: left; display: flex; align-items: center; gap: 4px; transition: color 0.2s; line-height: 1.7; text-decoration: underline; }
-  .song-btn:hover { color: #555; }
+  .song-btn { background: none; border: none; color: #7c3aed; font-size: 0.8rem; font-family: inherit; cursor: pointer; padding: 2px 0; text-align: left; display: flex; align-items: center; gap: 4px; transition: color 0.2s; line-height: 1.7; }
+  .song-btn:hover { color: #4c1d95; text-decoration: underline; }
   .song-btn::before { content: '♪'; font-size: 0.72rem; }
   .verse-btn { background: none; border: none; color: #2563eb; font-size: 0.8rem; font-weight: 600; font-family: inherit; cursor: pointer; padding: 2px 0; text-align: left; display: flex; align-items: center; gap: 4px; transition: color 0.2s; line-height: 1.7; }
   .verse-btn:hover { color: #1d4ed8; text-decoration: underline; }
@@ -56,12 +53,12 @@
   .text-btn { background: none; border: none; color: #6b7280; font-size: 0.8rem; font-family: inherit; cursor: pointer; padding: 2px 0; text-align: left; display: flex; align-items: center; gap: 4px; transition: color 0.2s; line-height: 1.7; }
   .text-btn:hover { color: #374151; text-decoration: underline; }
   .text-btn::before { content: '💬'; font-size: 0.72rem; }
-  .sermon-link { color: #1a1a2e; font-size: 0.8rem; font-weight: 600; text-decoration: underline; display: flex; align-items: center; gap: 4px; line-height: 1.7; }
+  .sermon-link { color: #7c3aed; font-size: 0.8rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 4px; line-height: 1.7; }
   .sermon-link::before { content: '▶'; font-size: 0.65rem; }
-  .sermon-link:hover { color: #555; }
+  .sermon-link:hover { color: #4c1d95; text-decoration: underline; }
 
-  .offering { background: #fff; border-radius: 16px; padding: 1.2rem; margin-bottom: 1.2rem; border: 1.5px solid #e5e5e5; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  .offering-title { font-size: 0.75rem; font-weight: 700; color: #1a1a2e; letter-spacing: 0.08em; margin-bottom: 0.5rem; text-transform: uppercase; }
+  .offering { background: #fff; border-radius: 16px; padding: 1.2rem; margin-bottom: 1.2rem; border: 1.5px solid #ede9fe; box-shadow: 0 2px 12px rgba(124,58,237,0.07); }
+  .offering-title { font-size: 0.75rem; font-weight: 700; color: #7c3aed; letter-spacing: 0.08em; margin-bottom: 0.5rem; text-transform: uppercase; }
   .offering-account { font-size: 0.95rem; font-weight: 600; color: #1a1a2e; margin-bottom: 0.3rem; }
   .offering-note { font-size: 0.76rem; color: #9ca3af; line-height: 1.6; }
 
@@ -78,20 +75,20 @@
   .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; align-items: center; justify-content: center; padding: 1.5rem; }
   .overlay.active { display: flex; }
   .popup { background: #fff; border-radius: 20px; width: 100%; max-width: 420px; max-height: 82vh; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
-  .popup-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.2rem; border-bottom: 1px solid #eee; gap: 0.5rem; }
+  .popup-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.2rem; border-bottom: 1px solid #f0eeff; gap: 0.5rem; }
   .popup-badge { font-size: 0.68rem; font-weight: 700; color: #fff; padding: 3px 8px; border-radius: 20px; flex-shrink: 0; }
-  .popup-badge.song { background: #1a1a2e; }
+  .popup-badge.song { background: #7c3aed; }
   .popup-badge.verse { background: #2563eb; }
   .popup-badge.notice { background: #059669; }
   .popup-badge.text { background: #6b7280; }
   .popup-title { font-size: 0.95rem; font-weight: 700; color: #1a1a2e; flex: 1; }
-  .popup-close { background: #f5f5f5; border: none; color: #1a1a2e; width: 28px; height: 28px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s; }
-  .popup-close:hover { background: #e5e5e5; }
+  .popup-close { background: #f5f3ff; border: none; color: #7c3aed; width: 28px; height: 28px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s; }
+  .popup-close:hover { background: #ede9fe; }
   .popup-body { padding: 1.2rem; overflow-y: auto; font-size: 264%; }
   .popup-legend { display: flex; gap: 1.2rem; margin-bottom: 0.7rem; }
   .popup-legend span { font-size: 0.75rem; color: #6b7280; }
   .popup-legend .icon-t { color: #2563eb; font-weight: 700; }
-  .popup-legend .icon-c { color: #1a1a2e; font-weight: 700; }
+  .popup-legend .icon-c { color: #7c3aed; font-weight: 700; }
   .popup-divider { border: none; border-top: 1px solid #e5e7eb; margin-bottom: 1rem; }
   .popup-text { font-size: 0.88rem; color: #374151; line-height: 2.1; white-space: pre-wrap; word-break: keep-all; }
 </style>
@@ -103,9 +100,9 @@
     <img src="https://raw.githubusercontent.com/smart9592/reframechurch/refs/heads/main/1688777944179.png" alt="리프레임처치" style="width: 200px; max-width: 70%; filter: brightness(0);" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
     <div style="display:none; font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:#1a1a2e;">리프레임처치</div>
   </div>
-  <div class="date">2026. 4. 5. PM 1:00</div>
-  <div class="title">부활주일</div>
-  <div class="subtitle">Easter Sunday</div>
+  <div class="date">2026. 4. 12. PM 1:00</div>
+  <div class="title">부활 후 첫째 주일</div>
+  <div class="subtitle">Season of After Resurrection : 1st wk.</div>
   <div class="hero-verse">
     "내 안에 생명의 빛"<br>
     <span style="font-size:0.78rem; color:#888;">그에게서 생명을 얻었으니, 그 생명은 사람의 빛이었다.</span><br>
@@ -123,11 +120,17 @@
 
 <div class="content">
 
-  <!-- 부름 -->
   <div class="section">
     <div class="section-header">
       <div class="section-badge">부름</div>
       <div class="section-title">예배의 자리로 나아갑니다</div>
+    </div>
+    <div class="order-item">
+      <div class="item-left">
+        <div class="item-name">예배의 부름</div>
+        <div class="item-detail"><button class="verse-btn" onclick="openPopup('verse','마태복음 28:5-6',true)">마태복음 28:5-6</button></div>
+      </div>
+      <div class="item-right"><div class="item-who">인도자</div></div>
     </div>
     <div class="order-item">
       <div class="item-left"><div class="item-name">찬양</div><div class="item-detail"><button class="song-btn" onclick="openPopup('song','입례',false)">입례</button></div></div>
@@ -144,29 +147,31 @@
       <div class="item-left">
         <div class="item-name">찬양</div>
         <div class="item-detail">
-          <button class="song-btn" onclick="openPopup('song','예수 열방의 소망',false)">예수 열방의 소망</button>
-          <button class="song-btn" onclick="openPopup('song','주 하나님 독생자 예수',false)">주 하나님 독생자 예수</button>
-          <button class="song-btn" onclick="openPopup('song','선포하라',false)">선포하라</button>
-          <button class="song-btn" onclick="openPopup('song','나는 찬양하리라',false)">나는 찬양하리라</button>
+          <button class="song-btn" onclick="openPopup('song','우리는 주의 움직이는 교회',false)">우리는 주의 움직이는 교회</button>
+          <button class="song-btn" onclick="openPopup('song','예수 감사하리 주의 보혈',false)">예수 감사하리 주의 보혈</button>
+          <button class="song-btn" onclick="openPopup('song','예배합니다',false)">예배합니다</button>
+          <button class="song-btn" onclick="openPopup('song','주는 존귀하신 분',false)">주는 존귀하신 분</button>
         </div>
       </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
     <div class="order-item">
       <div class="item-left"><div class="item-name">대표 기도</div></div>
-      <div class="item-right"><div class="item-who">임하늬 자매</div></div>
+      <div class="item-right"><div class="item-who">문선미 집사</div></div>
     </div>
   </div>
 
-  <!-- 말씀 -->
   <div class="section">
     <div class="section-header">
-      <div class="section-badge green">말씀</div>
+      <div class="section-badge green">세움</div>
       <div class="section-title">말씀으로 세워갑니다</div>
     </div>
     <div class="order-item">
-      <div class="item-left"><div class="item-name">성무일과</div><div class="item-detail"><button class="verse-btn" onclick="openPopup('verse','시편 22편',true)">시편 22편</button></div></div>
-      <div class="item-right"><div class="item-who">임하늬 자매</div></div>
+      <div class="item-left">
+        <div class="item-name">성무일과</div>
+        <div class="item-detail"><button class="verse-btn" onclick="openPopup('verse','요한복음 20:19-31',true)">요한복음 20:19-31</button></div>
+      </div>
+      <div class="item-right"><div class="item-who">문선미 집사</div></div>
     </div>
     <div class="order-item">
       <div class="item-left"><div class="item-name">광고</div><div class="item-detail"><button class="notice-btn" onclick="openPopup('notice','리프레임 소식',false)">리프레임 소식</button></div></div>
@@ -175,66 +180,21 @@
     <div class="order-item">
       <div class="item-left">
         <div class="item-name">설교</div>
-        <div class="item-detail"><a class="sermon-link" href="https://reframechurch.notion.site/26-22-3353a41a231a80cd9268d788787ea16e?source=copy_link" target="_blank">부활의 여정</a></div>
+        <div class="item-detail"><a class="sermon-link" href="https://reframechurch.vercel.app/sermon.html" target="_blank">6과. 겸손한 공동체</a></div>
         <div class="note">* 설교 제목을 클릭하시면 설교안을 확인하실 수 있습니다.</div>
       </div>
       <div class="item-right"><div class="item-who">지대근 목사</div></div>
     </div>
-  </div>
-
-  <!-- 서약 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-badge blue">서약</div>
-      <div class="section-title"></div>
-    </div>
     <div class="order-item">
       <div class="item-left">
-        <div class="item-name">세례 갱신 서약</div>
-        <div class="item-detail"><button class="text-btn" onclick="openPopup('text','세례 갱신 서약',true)">서약 교독문 보기</button></div>
-      </div>
-      <div class="item-right"><div class="item-who">다같이</div></div>
-    </div>
-    <div class="order-item">
-      <div class="item-left">
-        <div class="item-name">찬양</div>
-        <div class="item-detail"><button class="song-btn" onclick="openPopup('song','주의 보좌로 나아갈 때',false)">주의 보좌로 나아갈 때</button></div>
-      </div>
-      <div class="item-right"><div class="item-who">다같이</div></div>
-    </div>
-    <div class="order-item">
-      <div class="item-left">
-        <div class="item-name">세례 갱신 예식</div>
-        <div class="item-detail"><button class="text-btn" onclick="openPopup('text','세례 갱신 예식',false)">예식 안내 보기</button></div>
-        <div class="note">* 한 사람씩 앞으로 나와 예식에 참여합니다.</div>
+        <div class="item-name">봉헌 찬양</div>
+        <div class="item-detail"><button class="song-btn" onclick="openPopup('song','나의 모습 나의 소유',false)">나의 모습 나의 소유</button></div>
+        <div class="note">* 회중은 말씀에 응답하며 봉헌 찬양을 부릅니다.</div>
       </div>
       <div class="item-right"><div class="item-who">다같이</div></div>
     </div>
   </div>
 
-  <!-- 성찬 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-badge purple">성찬</div>
-      <div class="section-title"></div>
-    </div>
-    <div class="order-item">
-      <div class="item-left">
-        <div class="item-name">성찬 예식</div>
-        <div class="note">* 성찬의 식탁으로 이동해 집례자의 안내에 따라 예수님의 몸과 피를 대합합니다.</div>
-      </div>
-      <div class="item-right"><div class="item-who">다같이</div></div>
-    </div>
-    <div class="order-item">
-      <div class="item-left">
-        <div class="item-name">예식 후 기도</div>
-        <div class="item-detail"><button class="text-btn" onclick="openPopup('text','예식 후 기도',true)">기도문 보기</button></div>
-      </div>
-      <div class="item-right"><div class="item-who">집례자</div></div>
-    </div>
-  </div>
-
-  <!-- 보냄 -->
   <div class="section">
     <div class="section-header">
       <div class="section-badge orange">보냄</div>
@@ -303,7 +263,7 @@
       <tr>
         <td style="color:rgba(255,255,255,0.4); padding:0.4rem 0.6rem 0.4rem 0; font-weight:700; vertical-align:top; white-space:nowrap;">주중</td>
         <td style="color:rgba(255,255,255,0.65); padding:0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.07); line-height:1.8;">
-          개인기도실 · 금요일 오후 8시<br>
+          금요기도회 · 금요일 오후 8시<br>
           <span style="font-size:0.7rem; color:rgba(255,255,255,0.35);">서울 성동구 서울숲2길 32-14, B3 (갤러리아포레)</span><br>
           정시기도 · 화~목 오후 10시 (Zoom)
         </td>
@@ -343,93 +303,21 @@ const data = {
 
   '사도신경': `나는 전능하신 아버지 하나님, 천지의 창조주를 믿습니다.\n나는 그의 유일하신 아들, 우리 주 예수 그리스도를 믿습니다.\n그는 성령으로 잉태되어 동정녀 마리아에게서 나시고,\n본디오 빌라도에게 고난을 받아 십자가에 못 박혀 죽으시고,\n장사된 지 사흘만에 죽은 자 가운데서 다시 살아나셨으며,\n하늘에 오르시어 전능하신 아버지 하나님 우편에 앉아 계시다가,\n거기로부터 살아있는 자와 죽은 자를 심판하러 오십니다.\n나는 성령을 믿으며, 거룩한 공교회와 성도의 교제와\n죄를 용서받는 것과 몸의 부활과 영생을 믿습니다. 아멘.`,
 
-  '나는 찬양하리라': `나는 찬양하리라 주님 그 이름 찬양
-예수 크신 주 이름 나 찬양하리라
-나는 영광돌리리 주님 영광의 이름 예수
-크신 주 이름 나 찬양하리라`,
+  '마태복음 28:5-6': `5. 천사가 여자들에게 말하여 이르되 너희는 무서워하지 말라\n십자가에 못 박히신 예수를 너희가 찾는 줄을 내가 아노라\n6. 그가 여기 계시지 않고 그가 말씀 하시던 대로 살아나셨느니라\n와서 그가 누우셨던 곳을 보라`,
 
-  '선포하라': `선포하라 부활하신 영광의 주
-아름다운 영광의 주를 보라
-하나님과 화목하게 하신 주
-보좌에 앉으신 그 어린양 예수
-다 무릎꿇고서 주 경배하리라
-찬송과 존귀와 영광과 능력을
-영원 영원토록 받아주옵소서`,
+  '우리는 주의 움직이는 교회': `우리는 주의 움직이는 교회\n이곳은 주님을 위한 자리\n내가 기도하는 모든 땅 위에서\n하나님 예배 받을\n그날을 고대하네\n\n나의 노래로 주님의 성전을 지으리\n높임을 받으소서\n이스라엘의 찬송 중\n거하신 주님은 거룩하십니다\n\n두 손 들어 주님의 보좌를 만들고\n온 맘 다해 경배하리\n그룹 날개 사이에\n임하신 것처럼 내 위에 임하소서\n\n하나님 우리가 이곳에 섰으니\n이 땅을 치유하소서\n하나님 우리가 어디에 있든지\n주를 높이리이다\n\n열방들아 주님을 송축할지어다\n그 발 아래 입 맞추라\n영원한 통치자 주 예수 그리스도\n그는 위대하신 왕`,
 
-  '예수 열방의 소망': `예수 열방의 소망
-예수 우리의 위로자
-예수 어둠속의 빛
-예수 변함없는 진리
-주는 온 땅의 영원한 소망
-주는 온 땅의 빛이 되시네
+  '예수 감사하리 주의 보혈': `예수 감사하리 주의 보혈 축복 속에 우린 자유를 노래해\n구원을 노래해\n새롭고 산길이 되신 예수 길과 진리 생명되셨네\n우릴 주의 자녀 삼으셨네 자유를 노래할 때\n주 행한 일 찬양 주 행한 일 찬양\n승리하시고 구속하신 주님 찬양해`,
 
-우리 위해 죽으시고 다시 사신 생명의 주
+  '예배합니다': `완전하신 나의 주\n의의 길로 날 인도하소서\n행하신 모든 일 주님의 영광\n다 경배합니다\n\n예배합니다 찬양합니다\n주님만 날 다스리소서\n예배합니다 찬양합니다\n주님 홀로 높임 받으소서`,
 
-주님만이 소망이요
-변함없는 반석이라
-주님만이 온 세상을 비추시네
-또 죽음에서 부활하신
-우리 구주 평강의 왕
-주를 믿는 모든 자의
-소망 되신 주를 믿네`,
+  '주는 존귀하신 분': `온 성도와 천사 보좌에 경배해\n모든 장로들 면류관을 드리네 어린양께\n\n주는 존귀하신분 주는 존귀하신분\n만물 주께 나와 주께 돌아가니 영광 받으소서\n\n주야로 기도의 향 올라가네\n주야로 기도의 향 올라가네`,
 
-  '주 하나님 독생자 예수': `주 하나님 독생자 예수 날 위하여 오셨네
-내 모든 죄 다 사하시고
-죽음에서 부활하신 나의 구세주
+  '요한복음 20:19-31': `19. 그 날, 곧 주간의 첫 날 저녁에, 제자들은 유대 사람들이 무서워서, 문을 모두 닫아걸고 있었다. 그 때에 예수께서 와서, 그들 가운데로 들어서셔서, "너희에게 평화가 있기를!" 하고 인사말을 하셨다.\n20. 이 말씀을 하시고 나서, 두 손과 옆구리를 그들에게 보여 주셨다. 제자들은 주님을 보고 기뻐하였다.\n21. [예수께서] 다시 그들에게 말씀하셨다. "너희에게 평화가 있기를 빈다. 아버지께서 나를 보내신 것 같이, 나도 너희를 보낸다."\n22. 이렇게 말씀하신 다음에, 그들에게 숨을 불어넣으시고 말씀하셨다. "성령을 받아라.\n23. 너희가 누구의 죄든지 용서해 주면, 그 죄가 용서될 것이요, 용서해 주지 않으면, 그대로 남아 있을 것이다."\n24. 열두 제자 가운데 하나로서 쌍둥이라고 불리는 도마는, 예수께서 오셨을 때에 그들과 함께 있지 않았다.\n25. 다른 제자들이 그에게 "우리는 주님을 보았소" 하고 말하였으나, 도마는 그들에게 "나는 내 눈으로 그의 손에 있는 못자국을 보고, 내 손가락을 그 못자국에 넣어 보고, 또 내 손을 그의 옆구리에 넣어 보지 않고서는 믿지 못하겠소!" 하고 말하였다.\n26. 여드레 뒤에 제자들이 다시 집 안에 모여 있었는데 도마도 함께 있었다. 문이 잠겨 있었으나, 예수께서 와서 그들 가운데로 들어서셔서 "너희에게 평화가 있기를!" 하고 인사말을 하셨다.\n27. 그리고 나서 도마에게 말씀하셨다. "네 손가락을 이리 내밀어서 내 손을 만져 보고, 네 손을 내 옆구리에 넣어 보아라. 그래서 의심을 떨쳐버리고 믿음을 가져라."\n28. 도마가 예수께 대답하기를 "나의 주님, 나의 하나님!" 하니,\n29. 예수께서 도마에게 말씀하셨다. "나를 보았기 때문에 믿느냐? 나를 보지 않고도 믿는 사람은 복이 있다."\n30. 예수께서는 제자들 앞에서 이 책에 기록하지 않은 다른 표징도 많이 행하셨다.\n31. 그런데 여기에 이것이나마 기록한 목적은, 여러분으로 하여금 예수가 그리스도요 하나님의 아들이심을 믿게 하고, 또 그렇게 믿어서 그의 이름으로 생명을 얻게 하려는 것이다.`,
 
-살아계신 주 나의 참된 소망
-걱정 근심 전혀없네
-사랑의 주 내 길 인도하니
-내 모든 삶의 기쁨 늘 충만하네
+  '리프레임 소식': `오늘 리프레임처치 예배에 오신 모든 분들을 주님의 이름으로 환영하고 축복합니다.\n\n1. 부활 새로운 생명의 삶, '주님과 함께하는 기쁨의 50일'\n- 예수님께서 부활 후 제자들을 찾아오셔서 말씀하셨습니다. '내 손과 발을 보아라. 바로 나다. 나를 만져 보아라. 그는 손과 발을 그들에게 보이셨다. 그리고 함께 잡수셨다.' (눅 24:39-43) 부활 후 우리에게 다가오신 주님은 실제로 보고, 만지고, 함께 먹는 경험의 시간입니다.\n\n2. 26년 사순절 및 부활절 헌금\n- 총액 : 103만 원\n* 이번 헌금은 청소년 상담 비용 및 나무 심기를 위해 사용됩니다. 마음 모아 함께해 주셔서 감사합니다. :)\n\n3. 2분기 소그룹 안내\n- 1조 : 지대근 목사 - 김학호 형제, 김영민 집사, 김병민 형제, 박예찬 형제\n- 2조 : 김윤경 사모 - 문선미 집사, 홍샛별 집사, 이현경 자매\n- 3조 : 강은경 자매 - 임하늬 자매, 조은유 자매, 강희경 자매\n- 4조 : 이희준 자매 - 한새미 자매, 지은수 자매, 박지운 형제, 장동진 형제\n\n4. 5주년 감사예배\n- 일시 : 5월 31일(주일), 오후 3시\n\n5. 26년 수련회 준비 안내\n- 대상 : 청년 그룹, 가정 그룹\n* 희망하는 일자, 기간, 장소, 주제 등을 논의하여 목사님과 상의해 주세요.\n\n6. 공동체 영성모임\n- 일시 : 매주 화~목, 오후 10시\n- 내용 : 신약 성경통독 (요한복음 15장 -)\n* 이번 주 인도자는 김윤경 사모입니다.\n** 매주 금요일은 금요기도회로 드려집니다. (갤러리아포레 B3, 오후 8시)\n\n7. 다음 주일 공동 식사 안내\n- 담당 : 김학호-임하늬 가정, 강은경 자매, 김병민 형제\n* 각 조의 어머니가 식사 기도를 준비해 주세요.`,
 
-주 안에서 거듭난 생명
-도우시는 주의 사랑
-참 기쁨과 확신가지고
-예수님의 도우심을 믿으며 살리
-
-살아계신 주 나의 참된 소망
-걱정 근심 전혀없네
-사랑의 주 내 길 인도하니
-내 모든 삶의 기쁨 늘 충만하네
-
-그 언젠가 주볼 때까지
-주를 위해 싸우리라
-승리의 길 멀고 험해도
-주님께서 나의 앞길 지켜 주시리
-
-살아계신 주 나의 참된 소망
-걱정 근심 전혀없네
-사랑의 주 내 길 인도하니
-내 모든 삶의 기쁨 늘 충만하네`,
-  '주의 보좌로 나아갈 때': `주의 보좌로 나아갈 때에
-어떻게 나아가야 할까
-나를 구원한 주의 십자가
-그것을 믿으며 가네
-
-주의 보좌로 나아갈 때에
-나 여전히 부족하나
-나를 품으신 주의 그 사랑
-그것을 믿으며 가네
-
-자격없는 내 힘이 아닌
-오직 예수님의 보혈로
-자격없는 내 힘이 아닌
-오직 예수님의 보혈로
-
-십자가의 보혈 완전하신 사랑
-힘입어 나아갑니다
-십자가의 보혈 완전하신 사랑
-힘입어 예배합니다`,
-
-  '시편 22편': `† 오늘 우리에게 주시는 하나님의 말씀은 시편 22편 입니다.\n\n─── 말씀 봉독 ───\n\n† 이는 하나님의 말씀입니다.\n✦ 아멘.`,
-
-  '리프레임 소식': `오늘 리프레임처치 예배에 오신 모든 분들을 주님의 이름으로 환영하고 축복합니다.\n\n1. 부활 새로운 생명의 삶, '주님과 함께하는 기쁨의 50일'\n- 이제 오순절의 성령의 강림까지 '기쁨의 50일'을 갖습니다. 예수님은 부활하시고 40일간 이 땅에 계시고, 승천하신 후 성령을 선물로 부어주셨습니다. 부활 후 제자들을 찾아와 주시며, 나에게도 찾아와 주신 주님과 함께 기쁨과 새 생명으로 살아가는 시간이 되시길 기도합니다.\n\n2. 공동체 영성모임\n- 일시 : 매주 화~목, 오후 10시\n- 장소 : 온라인 (Zoom)\n- 내용 : 신약 성경통독 (사도행전 -)\n* 이번 주 인도자는 김학호 형제입니다.\n** 매주 금요일은 금요기도회로 드려집니다. (갤러리아포레 B3, 오후 8시)\n\n3. 소그룹 안내\n- 오늘 소그룹은 식사조로 모이겠습니다.\n\n4. 다음 주일 공동 식사 안내\n- 담당 : 김윤경 사모, 홍샛별 집사, 이현경 자매\n* 간단하고 맛있는 식사로 준비해 주세요.\n** 각 조의 어머니가 식사 기도를 준비해 주세요.\n\n5. 교우 동정\n- 홍샛별 집사 : 부산국제화랑아트페어(BAMA) 참여 (4월 2일-5일, 부산 벡스코)`,
-
-  '세례 갱신 서약': `† 이제 여러분에게 묻습니다. 여러분은 악한 세력의 힘을 물리치겠습니까?\n✦ 예, 우리는 악한 세력의 힘을 물리치겠습니다.\n† 여러분은 악한 세상의 권세를 거부하겠습니까?\n✦ 예, 우리는 악한 세상의 권세를 거부하겠습니다.\n† 여러분은 죄를 회개합니까?\n✦ 예, 우리는 우리의 죄를 회개합니다.\n† 우리는 하나님을 믿습니까?\n✦ 예! 우리는 믿습니다. 우리는 하나님, 전능하신 아버지, 하늘과 땅의 창조주를 믿습니다.\n† 여러분의 아들 예수 그리스도를 믿습니까?\n✦ 예! 우리는 믿습니다. 우리는 그의 유일하신 아들, 우리 주 예수 그리스도를 믿습니다. 그는 성령으로 잉태되어 동정녀 마리아에게서 나시고, 본디오 빌라도에게 고난을 받아 십자가에 못 박혀 죽으시고, 장사된 지 사흘만에 죽은 자 가운데서 다시 살아나셨으며, 하늘에 오르시어 전능하신 아버지 하나님 우편에 앉아 계시다가, 거기로부터 살아있는 자와 죽은 자를 심판하러 오십니다.\n† 여러분은 성령을 믿습니까?\n✦ 예! 우리는 믿습니다. 우리는 성령을 믿으며, 거룩한 공교회와 성도의 교제와 죄를 용서받는 것과 몸의 부활과 영생을 믿습니다. 아멘.`,
-
-  '세례 갱신 예식': `* 한 사람씩 앞으로 나와 예식에 참여합니다.\n\n- 한 번 손을 물에 담근 후 머리에 손을 대거나 가슴에 손을 모으고 기도할 수 있습니다.\n- 물가로 나와 물을 응시하며 자신의 세례를 기억할 수 있습니다.\n- 참여하는 모든 사람은 예식에 참여하며 "나는 세례 받았습니다. 하나님 감사합니다"라고 고백합니다.\n- 다양한 방법을 통해 세례 갱신 예식을 마친 성도들은 자리로 돌아가 찬양을 함께 드리거나 침묵으로 기도할 수 있습니다.`,
-
-  '예식 후 기도': `† 하늘에 계신 우리 아버지, 하나님은 예수께서 요단강에서 세례 받으실 때 사랑하는 아들이라 칭하시며 성령을 덧입혀 주셨습니다. 물가로 나와서 세례를 기억하는 우리에게 하나님과 맺은 언약을 신실히 지킬 수 있도록 믿음을 허락하소서. 그리하여 시간과 공간의 주인이 하나님이심을 고백하게 하시고, 구원에 이르는 그 날까지 우리가 세례의 영광을 부르며 살아가게 하소서.\n✦ 아멘, 주여 우리를 불쌍히 여기소서\n† 세례를 통해 하나님께서 여러분의 삶의 새로움 속으로 걸어가게 하십니다. 영광과 권세가 지금부터 영원히 아버지의 것입니다.\n✦ 아멘, 주여 우리를 불쌍히 여기소서.\n† 그리스도께서는 죽으심으로 사망의 권세를 깨뜨렸고, 살아나심으로 우리에게 새생명을 주셨습니다. 세례로 인하여 다시 태어난 우리는 그리스도와 더불어 성령 안에서 평화를 누립시다.\n✦ 아멘, 주여 주님의 평강이 우리 모두와 함께\n† 주위에 계신 분들과 '평화의 인사'를 나눕시다.`,
+  '나의 모습 나의 소유': `나의 모습 나의 소유 주님 앞에 모두 드립니다\n모든 아픔 모든 기쁨 내 모든 눈물 받아주소서\n\n나의 생명을 드리니 주 영광 위하여 사용하옵소서\n내가 사는 날 동안에 주를 찬양하며\n기쁨의 제물되리 나를 받아주소서\n\n어제일과 내일일도 꿈과 희망 모두 드립니다\n모든 소망 모든 계획 내 손과 마음 받아주소서\n\n나의 생명을 드리니 주 영광 위하여 사용하옵소서\n내가 사는 날 동안에 주를 찬양하며\n기쁨의 제물되리 나를 받아주소서`,
 
   '다시 일어나': `다시 일어나 주를 예배함이\n내 모든 기쁨이 되리\n그의 기쁨 되어 삶의 모든 순간을\n주께 다 내어드리리`
 };
